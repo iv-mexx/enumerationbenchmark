@@ -21,6 +21,7 @@
 		21EE81B315BC7A3500F991F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE819115BC7A3500F991F6 /* Foundation.framework */; };
 		21EE81BB15BC7A3500F991F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21EE81B915BC7A3500F991F6 /* InfoPlist.strings */; };
 		21EE81BE15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EE81BD15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.m */; };
+		21EE81C915BC7ADA00F991F6 /* DNEnumerationMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EE81C815BC7ADA00F991F6 /* DNEnumerationMethods.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +39,24 @@
 		21EE818F15BC7A3500F991F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21EE819115BC7A3500F991F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21EE819315BC7A3500F991F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		21EE819715BC7A3500F991F6 /* LoopEnumerationBenchmark-Info.plist */ = {isa = PBXFileReference; path = "LoopEnumerationBenchmark-Info.plist"; sourceTree = "<group>"; };
+		21EE819715BC7A3500F991F6 /* LoopEnumerationBenchmark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoopEnumerationBenchmark-Info.plist"; sourceTree = "<group>"; };
 		21EE819915BC7A3500F991F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21EE819B15BC7A3500F991F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		21EE819D15BC7A3500F991F6 /* LoopEnumerationBenchmark-Prefix.pch */ = {isa = PBXFileReference; path = "LoopEnumerationBenchmark-Prefix.pch"; sourceTree = "<group>"; };
-		21EE819E15BC7A3500F991F6 /* DNAppDelegate.h */ = {isa = PBXFileReference; path = DNAppDelegate.h; sourceTree = "<group>"; };
+		21EE819D15BC7A3500F991F6 /* LoopEnumerationBenchmark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoopEnumerationBenchmark-Prefix.pch"; sourceTree = "<group>"; };
+		21EE819E15BC7A3500F991F6 /* DNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNAppDelegate.h; sourceTree = "<group>"; };
 		21EE819F15BC7A3500F991F6 /* DNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNAppDelegate.m; sourceTree = "<group>"; };
 		21EE81A215BC7A3500F991F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		21EE81A515BC7A3500F991F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		21EE81A715BC7A3500F991F6 /* DNViewController.h */ = {isa = PBXFileReference; path = DNViewController.h; sourceTree = "<group>"; };
+		21EE81A715BC7A3500F991F6 /* DNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNViewController.h; sourceTree = "<group>"; };
 		21EE81A815BC7A3500F991F6 /* DNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNViewController.m; sourceTree = "<group>"; };
 		21EE81AF15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopEnumerationBenchmarkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EE81B015BC7A3500F991F6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		21EE81B815BC7A3500F991F6 /* LoopEnumerationBenchmarkTests-Info.plist */ = {isa = PBXFileReference; path = "LoopEnumerationBenchmarkTests-Info.plist"; sourceTree = "<group>"; };
+		21EE81B815BC7A3500F991F6 /* LoopEnumerationBenchmarkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoopEnumerationBenchmarkTests-Info.plist"; sourceTree = "<group>"; };
 		21EE81BA15BC7A3500F991F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		21EE81BC15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.h */ = {isa = PBXFileReference; path = LoopEnumerationBenchmarkTests.h; sourceTree = "<group>"; };
+		21EE81BC15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopEnumerationBenchmarkTests.h; sourceTree = "<group>"; };
 		21EE81BD15BC7A3500F991F6 /* LoopEnumerationBenchmarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoopEnumerationBenchmarkTests.m; sourceTree = "<group>"; };
+		21EE81C715BC7ADA00F991F6 /* DNEnumerationMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNEnumerationMethods.h; sourceTree = "<group>"; };
+		21EE81C815BC7ADA00F991F6 /* DNEnumerationMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNEnumerationMethods.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				21EE81A415BC7A3500F991F6 /* MainStoryboard_iPad.storyboard */,
 				21EE81A715BC7A3500F991F6 /* DNViewController.h */,
 				21EE81A815BC7A3500F991F6 /* DNViewController.m */,
+				21EE81C715BC7ADA00F991F6 /* DNEnumerationMethods.h */,
+				21EE81C815BC7ADA00F991F6 /* DNEnumerationMethods.m */,
 				21EE819615BC7A3500F991F6 /* Supporting Files */,
 			);
 			path = LoopEnumerationBenchmark;
@@ -266,6 +271,7 @@
 				21EE819C15BC7A3500F991F6 /* main.m in Sources */,
 				21EE81A015BC7A3500F991F6 /* DNAppDelegate.m in Sources */,
 				21EE81A915BC7A3500F991F6 /* DNViewController.m in Sources */,
+				21EE81C915BC7ADA00F991F6 /* DNEnumerationMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
