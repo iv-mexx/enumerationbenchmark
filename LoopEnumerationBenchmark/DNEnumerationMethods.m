@@ -319,7 +319,7 @@
 		for(NSNumber *number in _testArray)
 		{
 			NSEnumerator *reverseEnumterator = [_testArray reverseObjectEnumerator];
-			NSNumber     *innerLoopNumber = reverseEnumterator.nextObject;
+			NSNumber     *innerLoopNumber;
 			while((innerLoopNumber = reverseEnumterator.nextObject) && ![innerLoopNumber isEqualToNumber:number])
 			{
 				assert(innerLoopNumber);
