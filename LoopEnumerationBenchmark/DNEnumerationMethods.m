@@ -46,17 +46,14 @@
     
 	for(NSUInteger c = 0; c < numberOfRuns; c++)
 	{
-        int counter = 0;
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
 		for(NSNumber *number in _testArray)
 		{
 			assert(number);
-            counter ++;
 		}
 		// ////////////////////////////////////////////////////
-        NSLog(@"Counter: %d", counter);
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
@@ -74,17 +71,14 @@
     
 	for(NSUInteger c = 0; c < numberOfRuns; c++)
 	{
-        int counter = 0;
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
 		for(NSNumber *number in [_testArray reverseObjectEnumerator])
 		{
-            counter ++ ;
 			assert(number);
 		}
 		// ////////////////////////////////////////////////////
-        NSLog(@"Counter: %d", counter);
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
