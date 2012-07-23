@@ -10,7 +10,7 @@
 #import "DNEnumerationMethods.h"
 
 #define kNumberOfRuns 1
-#define kSleepIntervalMs 0
+#define kSleepInterval 2
 
 @interface DNViewController ()
 
@@ -48,19 +48,19 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Sleep is to seperate the Test-Cases in Instruments
         DNEnumerationMethods *dut = [[DNEnumerationMethods alloc] initWithArraySize:5000];
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         // Double Enumeration
         [dut doubleFastEnumerationSlicing:kNumberOfRuns];           // 1 
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut doubleForLoop:kNumberOfRuns];                          // 2
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut doubleHybrid:kNumberOfRuns];                           // 3
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut doubleFastEnumerationAndEnumeration:kNumberOfRuns];    // 4
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut doubleFastEnumerationPointerCheck:kNumberOfRuns];      // 5
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         dispatch_async(dispatch_get_main_queue(), ^{
             [_activityIndicator stopAnimating];
         });
@@ -76,39 +76,39 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Sleep is to seperate the Test-Cases in Instruments
         DNEnumerationMethods *dut = [[DNEnumerationMethods alloc] initWithArraySize:1000000];
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         // Single Enumeration
         [dut singleFastEnumeration:kNumberOfRuns];                  // 1
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleFastEnumerationReverse:kNumberOfRuns];           // 2
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleEnumeration:kNumberOfRuns];                      // 3
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleEnumerationReverse:kNumberOfRuns];               // 4
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleForLoop:kNumberOfRuns];                          // 5
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];   
+        [NSThread sleepForTimeInterval:kSleepInterval];   
         [dut singleForLoopReverse:kNumberOfRuns];                   // 6
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleBlock:kNumberOfRuns];                            // 7
-        [NSThread sleepForTimeInterval:kSleepIntervalMs]; 
+        [NSThread sleepForTimeInterval:kSleepInterval]; 
         [dut singleBlockBackwards:kNumberOfRuns];                   // 8
-        [NSThread sleepForTimeInterval:kSleepIntervalMs]; 
+        [NSThread sleepForTimeInterval:kSleepInterval]; 
         [dut singleBlockConcurrent:kNumberOfRuns];                  // 9
-        [NSThread sleepForTimeInterval:kSleepIntervalMs]; 
+        [NSThread sleepForTimeInterval:kSleepInterval]; 
         // Enumeration 'all but the last element'
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];       
+        [NSThread sleepForTimeInterval:kSleepInterval];       
         [dut partialEnumerationForLoop:kNumberOfRuns];              // 10
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut partialEnumerationFastSlicing:kNumberOfRuns];          // 11
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];       
+        [NSThread sleepForTimeInterval:kSleepInterval];       
         [dut partialEnumerationCheck:kNumberOfRuns];                // 12
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];      
+        [NSThread sleepForTimeInterval:kSleepInterval];      
         [dut partialEnumerationGetObjectsRange:kNumberOfRuns];      // 13
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];     
+        [NSThread sleepForTimeInterval:kSleepInterval];     
         [dut partialEnumerationWithBlock:kNumberOfRuns];            // 14
-        [NSThread sleepForTimeInterval:kSleepIntervalMs];      
+        [NSThread sleepForTimeInterval:kSleepInterval];      
         [dut partialEnumerationWithBlockConcurrent:kNumberOfRuns];  // 15
         
         
