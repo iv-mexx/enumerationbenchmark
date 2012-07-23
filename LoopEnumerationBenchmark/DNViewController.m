@@ -79,17 +79,17 @@
         [NSThread sleepForTimeInterval:kSleepInterval];
         [NSThread sleepForTimeInterval:kSleepInterval];
         // Single Enumeration
-        [dut singleFastEnumeration:kNumberOfRuns];                  // 1
-        [NSThread sleepForTimeInterval:kSleepInterval];
-        [dut singleFastEnumerationReverse:kNumberOfRuns];           // 2
+        [dut singleForLoop:kNumberOfRuns];                          // 1
+        [NSThread sleepForTimeInterval:kSleepInterval];   
+        [dut singleForLoopReverse:kNumberOfRuns];                   // 2
         [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleEnumeration:kNumberOfRuns];                      // 3
         [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleEnumerationReverse:kNumberOfRuns];               // 4
+        [NSThread sleepForTimeInterval:kSleepInterval];       
+        [dut singleFastEnumeration:kNumberOfRuns];                  // 5
         [NSThread sleepForTimeInterval:kSleepInterval];
-        [dut singleForLoop:kNumberOfRuns];                          // 5
-        [NSThread sleepForTimeInterval:kSleepInterval];   
-        [dut singleForLoopReverse:kNumberOfRuns];                   // 6
+        [dut singleFastEnumerationReverse:kNumberOfRuns];           // 6
         [NSThread sleepForTimeInterval:kSleepInterval];
         [dut singleBlock:kNumberOfRuns];                            // 7
         [NSThread sleepForTimeInterval:kSleepInterval]; 
