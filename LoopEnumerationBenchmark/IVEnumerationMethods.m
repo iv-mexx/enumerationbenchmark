@@ -565,8 +565,8 @@
 		// Algorithm
 		// ////////////////////////////////////////////////////
 		NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
-		__unsafe_unretained id *subarray = (__unsafe_unretained id *)malloc(sizeof(id) * subArrayRange.length);
-
+		__unsafe_unretained id *subarray = (__unsafe_unretained id *)calloc(subArrayRange.length, sizeof(id));
+		
 		[_testArray getObjects:subarray range:subArrayRange];
 
 		for (NSUInteger i = 0; i < subArrayRange.length; i++) {
