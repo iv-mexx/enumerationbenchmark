@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 devsub.net. All rights reserved.
 //
 
-#import "DNViewController.h"
-#import "DNEnumerationMethods.h"
+#import "IVViewController.h"
+#import "IVEnumerationMethods.h"
 
 #define kNumberOfRuns 1
 #define kSleepInterval 2
 
-@interface DNViewController ()
+@interface IVViewController ()
 
 @end
 
-@implementation DNViewController
+@implementation IVViewController
 
 - (void)viewDidLoad
 {
@@ -47,7 +47,7 @@
     [_activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Sleep is to seperate the Test-Cases in Instruments
-        DNEnumerationMethods *dut = [[DNEnumerationMethods alloc] initWithArraySize:5000];
+        IVEnumerationMethods *dut = [[IVEnumerationMethods alloc] initWithArraySize:5000];
         [NSThread sleepForTimeInterval:kSleepInterval];
         [NSThread sleepForTimeInterval:kSleepInterval];
         // Double Enumeration
@@ -75,7 +75,7 @@
     [_activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Sleep is to seperate the Test-Cases in Instruments
-        DNEnumerationMethods *dut = [[DNEnumerationMethods alloc] initWithArraySize:1000000];
+        IVEnumerationMethods *dut = [[IVEnumerationMethods alloc] initWithArraySize:1000000];
         [NSThread sleepForTimeInterval:kSleepInterval];
         [NSThread sleepForTimeInterval:kSleepInterval];
         // Single Enumeration

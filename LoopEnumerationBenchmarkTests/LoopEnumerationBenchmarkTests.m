@@ -7,14 +7,14 @@
 //
 
 #import "LoopEnumerationBenchmarkTests.h"
-#import "DNEnumerationMethods.h"
+#import "IVEnumerationMethods.h"
 @implementation LoopEnumerationBenchmarkTests
 
 - (void)setUp
 {
     [super setUp];
     // Set-up code here.
-    _dut = [[DNEnumerationMethods alloc] initWithArraySize:5000];
+    _dut = [[IVEnumerationMethods alloc] initWithArraySize:5000];
 }
 
 - (void)tearDown

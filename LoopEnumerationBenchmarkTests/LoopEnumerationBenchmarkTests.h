@@ -8,9 +8,9 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@class DNEnumerationMethods;
+@class IVEnumerationMethods;
 @interface LoopEnumerationBenchmarkTests : SenTestCase
 {
-    DNEnumerationMethods *_dut;
+    IVEnumerationMethods *_dut;
 }
 @end

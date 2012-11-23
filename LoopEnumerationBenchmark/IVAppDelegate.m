@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 devsub.net. All rights reserved.
 //
 
-#import "DNAppDelegate.h"
+#import "IVAppDelegate.h"
 
-@implementation DNAppDelegate
+@implementation IVAppDelegate
 
 @synthesize window = _window;
 

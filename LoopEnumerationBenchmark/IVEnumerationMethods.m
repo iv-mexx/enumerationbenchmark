@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 devsub.net. All rights reserved.
 //
 
-#import "DNEnumerationMethods.h"
+#import "IVEnumerationMethods.h"
 
-@implementation DNEnumerationMethods
+@implementation IVEnumerationMethods
 -(id)init
 {
     // Init with default size

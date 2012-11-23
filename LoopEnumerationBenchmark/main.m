@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DNAppDelegate.h"
+#import "IVAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([DNAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([IVAppDelegate class]));
     }
 }

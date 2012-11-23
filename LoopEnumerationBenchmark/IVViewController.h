@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DNViewController : UIViewController
+@interface IVViewController : UIViewController
 {
     IBOutlet UIActivityIndicatorView *_activityIndicator;
 }

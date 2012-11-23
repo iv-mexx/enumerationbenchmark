@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DNEnumerationMethods : NSObject
+@interface IVEnumerationMethods : NSObject
 {
     NSArray *_testArray;
 }
