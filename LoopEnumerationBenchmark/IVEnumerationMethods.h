@@ -35,6 +35,7 @@
 -(NSTimeInterval)partialEnumerationForLoop:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationFastSlicing:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationCheck:(int)numberOfRuns;
+-(NSTimeInterval)partialEnumerationCheckIgnore:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationGetObjectsRange:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationWithBlock:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationWithBlockConcurrent:(int)numberOfRuns;

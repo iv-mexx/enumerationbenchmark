@@ -14,7 +14,7 @@
 {
     [super setUp];
     // Set-up code here.
-    _dut = [[IVEnumerationMethods alloc] initWithArraySize:5000];
+    _dut = [[IVEnumerationMethods alloc] initWithArraySize:1000000];
 }
 
 - (void)tearDown
@@ -24,6 +24,8 @@
 }
 
 #define kNumbeOfCycles  10
+
+#pragma mark - Simple Enumeration
 
 -(void)testFastEnumeration
 {
@@ -55,6 +57,8 @@
     [_dut singleForLoopReverse:kNumbeOfCycles];
 }
 
+#pragma mark - Triangular Enumeration
+
 -(void)testTriangularFastNumerator
 {
     [_dut doubleFastEnumerationAndEnumeration:kNumbeOfCycles];
@@ -75,9 +79,16 @@
     [_dut doubleForLoop:kNumbeOfCycles];
 }
 
+#pragma mark - Partial Enumeration
+
 -(void)testPartialFastEnumerationCheck
 {
     [_dut partialEnumerationCheck:kNumbeOfCycles];
+}
+
+-(void)testPartialFastEnumerationCheckIgnore
+{
+    [_dut partialEnumerationCheckIgnore:kNumbeOfCycles];
 }
 
 -(void)testPartialForLoop
@@ -104,6 +115,7 @@
 {
     [_dut partialEnumerationWithBlockConcurrent:kNumbeOfCycles];
 }
+
 
 
 @end

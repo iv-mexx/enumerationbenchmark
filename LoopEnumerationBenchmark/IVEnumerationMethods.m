@@ -58,7 +58,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"FastEnumeration took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"FastEnumeration took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -83,7 +83,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"FastEnumeration Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"FastEnumeration Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -110,7 +110,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Enumerator took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Enumerator took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -137,7 +137,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Enumerator Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Enumerator Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -163,7 +163,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"For Loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"For Loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -189,7 +189,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"For Loop Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"For Loop Reverse took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -210,7 +210,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"singleBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"singleBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -231,7 +231,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"singleBlockBackwards took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"singleBlockBackwards took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -252,7 +252,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"singleBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"singleBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -287,7 +287,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Nested for-loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Nested for-loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -326,7 +326,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Triangular Fast Enumerator took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Triangular Fast Enumerator took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -361,7 +361,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Triangular Double Fast with Pointercheck took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Triangular Double Fast with Pointercheck took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -395,7 +395,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Triangular Hybrid took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Triangular Hybrid took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -431,7 +431,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Triangular Slicing took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Triangular Slicing took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -459,7 +459,7 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"Partial Enumeration for-loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"Partial Enumeration for-loop took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -475,21 +475,51 @@
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
-        NSNumber *lastNumber = [_testArray lastObject];
-        for(NSNumber *number in _testArray)
-        {
-            // We can do this pointer-check here because the we search for the exact same object here
-            if(number != lastNumber)
-            {                
-                assert(number);
-            }
-        }
+		NSNumber *lastNumber = [_testArray lastObject];
+		for(NSNumber *number in _testArray)
+		{
+			// We can do this pointer-check here because the we search for the exact same object here
+			if(number != lastNumber)
+			{                
+				assert(number);
+			}
+		}
 		// ////////////////////////////////////////////////////
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-	NSLog(@"Partial Fast Enumeration with check  took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+	NSLog(@"Partial Fast Enumeration with check  took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	return perCycle;
+}
+
+/**
+ *  This Method enumerates all but the elements in a 'ignore' set by checking if the element is in the 
+ *	ignore set
+ */
+-(NSTimeInterval)partialEnumerationCheckIgnore:(int)numberOfRuns
+{
+    NSDate *starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		NSSet *ignoreItems = [NSSet setWithObject:[_testArray lastObject]];
+		for(NSNumber *number in _testArray)
+		{
+			// We can do this pointer-check here because the we search for the exact same object here
+			if(![ignoreItems containsObject:number])
+			{
+				assert(number);
+			}
+		}
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate = [NSDate date];
+	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle = total / numberOfRuns;
+	NSLog(@"Partial Fast Enumeration with check general ignore took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;
 }
 
@@ -506,18 +536,18 @@
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
-        NSRange subArrayRange = NSMakeRange(0, [_testArray count] - 1);
-        NSArray *subArray = [_testArray subarrayWithRange:subArrayRange];
-        for(NSNumber *number in subArray)
-        {
-            assert(number);
-        }
+		NSRange subArrayRange = NSMakeRange(0, [_testArray count] - 1);
+		NSArray *subArray = [_testArray subarrayWithRange:subArrayRange];
+		for(NSNumber *number in subArray)
+		{
+			assert(number);
+		}
 		// ////////////////////////////////////////////////////
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"partial Enumeration Fast Slicing took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"partial Enumeration Fast Slicing took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;    
 }
 
@@ -534,22 +564,22 @@
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
-        NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
-        __unsafe_unretained id *subarray = (__unsafe_unretained id *)malloc(sizeof(id) * subArrayRange.length);
-        
-        [_testArray getObjects:subarray range:subArrayRange];
-        
-        for (NSUInteger i = 0; i < subArrayRange.length; i++) {
-            NSNumber *number = subarray[i];
-            assert(number);
-        }
-        free(subarray);
+		NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+		__unsafe_unretained id *subarray = (__unsafe_unretained id *)malloc(sizeof(id) * subArrayRange.length);
+
+		[_testArray getObjects:subarray range:subArrayRange];
+
+		for (NSUInteger i = 0; i < subArrayRange.length; i++) {
+			NSNumber *number = subarray[i];
+			assert(number);
+		}
+		free(subarray);
 		// ////////////////////////////////////////////////////
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"partial getObjectsRange took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"partial getObjectsRange took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;    
 }
 
@@ -564,17 +594,17 @@
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
-        NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
-        [_testArray enumerateObjectsAtIndexes:indexSet options:0 usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
-            assert(number);
-        }];
+		NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
+		[_testArray enumerateObjectsAtIndexes:indexSet options:0 usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
 		// ////////////////////////////////////////////////////
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"partialEnumerationWithBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"partialEnumerationWithBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;    
 }
 
@@ -589,17 +619,20 @@
 		// ////////////////////////////////////////////////////
 		// Algorithm
 		// ////////////////////////////////////////////////////
-        NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
-        [_testArray enumerateObjectsAtIndexes:indexSet options:NSEnumerationConcurrent usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
-            assert(number);
-        }];
+		NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
+		[_testArray enumerateObjectsAtIndexes:indexSet options:NSEnumerationConcurrent usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
 		// ////////////////////////////////////////////////////
 	}
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
-    NSLog(@"partialEnumerationWithBlockConcurrent took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000 * perCycle), (perCycle / ([_testArray count] / 1000000)));
+    NSLog(@"partialEnumerationWithBlockConcurrent took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
 	return perCycle;    
 }
+
+
+
 @end
