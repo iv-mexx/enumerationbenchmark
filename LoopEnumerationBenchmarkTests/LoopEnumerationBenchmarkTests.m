@@ -106,16 +106,29 @@
     [_dut partialEnumerationGetObjectsRange:kNumbeOfCycles];
 }
 
--(void)partialEnumerationWithBlock
+-(void)testPartialEnumerationWithBlock
 {
     [_dut partialEnumerationWithBlock:kNumbeOfCycles];
 }
 
--(void)partialEnumerationWithBlockConcurrent
+-(void)testPartialEnumerationWithBlockConcurrent
 {
     [_dut partialEnumerationWithBlockConcurrent:kNumbeOfCycles];
 }
 
+-(void)testPartialEnumerationCheckIgnoreExclude
+{
+	[_dut partialEnumerationCheckIgnoreExclude:kNumbeOfCycles];
+}
 
+-(void)testPartialEnumerationWithBlockExclude
+{
+	[_dut partialEnumerationWithBlockExclude:kNumbeOfCycles];
+}
+
+-(void)testPartialEnumerationWithBlockConcurrentExclude
+{
+	[_dut partialEnumerationWithBlockConcurrentExclude:kNumbeOfCycles];
+}
 
 @end

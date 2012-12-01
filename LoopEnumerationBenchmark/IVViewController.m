@@ -108,8 +108,14 @@
         [dut partialEnumerationGetObjectsRange:kNumberOfRuns];      // 13
         [NSThread sleepForTimeInterval:kSleepInterval];     
         [dut partialEnumerationWithBlock:kNumberOfRuns];            // 14
-        [NSThread sleepForTimeInterval:kSleepInterval];      
+        [NSThread sleepForTimeInterval:kSleepInterval];
         [dut partialEnumerationWithBlockConcurrent:kNumberOfRuns];  // 15
+        [NSThread sleepForTimeInterval:kSleepInterval];
+        [dut partialEnumerationCheckIgnoreExclude:kNumberOfRuns];	// 16
+        [NSThread sleepForTimeInterval:kSleepInterval];
+        [dut partialEnumerationWithBlockExclude:kNumberOfRuns];		// 17
+        [NSThread sleepForTimeInterval:kSleepInterval];
+        [dut partialEnumerationWithBlockConcurrentExclude:kNumberOfRuns];  // 18
         
         
         dispatch_async(dispatch_get_main_queue(), ^{

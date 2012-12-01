@@ -39,4 +39,8 @@
 -(NSTimeInterval)partialEnumerationGetObjectsRange:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationWithBlock:(int)numberOfRuns;
 -(NSTimeInterval)partialEnumerationWithBlockConcurrent:(int)numberOfRuns;
+// Enumerating "all but some elements"
+-(NSTimeInterval)partialEnumerationCheckIgnoreExclude:(int)numberOfRuns;
+-(NSTimeInterval)partialEnumerationWithBlockExclude:(int)numberOfRuns;
+-(NSTimeInterval)partialEnumerationWithBlockConcurrentExclude:(int)numberOfRuns;
 @end

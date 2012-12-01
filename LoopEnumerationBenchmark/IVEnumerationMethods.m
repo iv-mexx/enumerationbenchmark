@@ -493,36 +493,6 @@
 	return perCycle;
 }
 
-/**
- *  This Method enumerates all but the elements in a 'ignore' set by checking if the element is in the 
- *	ignore set
- */
--(NSTimeInterval)partialEnumerationCheckIgnore:(int)numberOfRuns
-{
-    NSDate *starDate = [NSDate date];
-	for(NSUInteger c = 0; c < numberOfRuns; c++)
-	{
-		// ////////////////////////////////////////////////////
-		// Algorithm
-		// ////////////////////////////////////////////////////
-		NSSet *ignoreItems = [NSSet setWithObject:[_testArray lastObject]];
-		for(NSNumber *number in _testArray)
-		{
-			// We can do this pointer-check here because the we search for the exact same object here
-			if(![ignoreItems containsObject:number])
-			{
-				assert(number);
-			}
-		}
-		// ////////////////////////////////////////////////////
-	}
-	NSDate        *endDate = [NSDate date];
-	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
-	NSTimeInterval perCycle = total / numberOfRuns;
-	NSLog(@"Partial Fast Enumeration with check general ignore took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
-	return perCycle;
-}
-
 
 /**
  *  This Method enumerates all but the last element in the Array 
@@ -548,7 +518,31 @@
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
     NSLog(@"partial Enumeration Fast Slicing took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
-	return perCycle;    
+	
+	// A Second Meassuring without the Setupt for Pure Enumeration Time
+	// Setup first once
+	NSRange subArrayRange = NSMakeRange(0, [_testArray count] - 1);
+	NSArray *subArray = [_testArray subarrayWithRange:subArrayRange];
+	// Start Meassurement
+	starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		for(NSNumber *number in subArray)
+		{
+			assert(number);
+		}
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate2 = [NSDate date];
+	NSTimeInterval total2 = [endDate2 timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle2 = total2 / numberOfRuns;
+    NSLog(@"partial Enumeration Fast Slicing (Without Setup) took %fs\t(%fms per Cycle / %fus per Iteration)", total2, (1000.0f * perCycle2), (perCycle2 / ([_testArray count] / 1000000.0f)));
+	
+	NSLog(@"Set-Up took %fms per cycle", 1000.0 * (perCycle - perCycle2));
+	return perCycle;
 }
 
 /**
@@ -580,7 +574,91 @@
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
     NSLog(@"partial getObjectsRange took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	
+	// A Second Meassuring without the Setupt for Pure Enumeration Time
+	// Setup first once
+	NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+	__unsafe_unretained id *subarray = (__unsafe_unretained id *)calloc(subArrayRange.length, sizeof(id));
+	[_testArray getObjects:subarray range:subArrayRange];
+	// Start Time-Meassurement
+	starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////		
+		for (NSUInteger i = 0; i < subArrayRange.length; i++) {
+			NSNumber *number = subarray[i];
+			assert(number);
+		}
+		// ////////////////////////////////////////////////////
+	}
+	
+	free(subarray);
+	NSDate        *endDate2 = [NSDate date];
+	NSTimeInterval total2 = [endDate2 timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle2 = total2 / numberOfRuns;
+    NSLog(@"partial getObjectsRange (Without Setup) took %fs\t(%fms per Cycle / %fus per Iteration)", total2, (1000.0f * perCycle2), (perCycle2 / ([_testArray count] / 1000000.0f)));
+	NSLog(@"Set-Up took %fms per cycle", 1000.0 * (perCycle - perCycle2));
+	
 	return perCycle;    
+}
+
+/**
+ *  This Method enumerates all but the elements in a 'ignore' set by checking if the element is in the
+ *	ignore set
+ */
+-(NSTimeInterval)partialEnumerationCheckIgnore:(int)numberOfRuns
+{
+    NSDate *starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		NSSet *ignoreItems = [NSSet setWithObject:[_testArray lastObject]];
+		for(NSNumber *number in _testArray)
+		{
+			// We can do this pointer-check here because the we search for the exact same object here
+			if(![ignoreItems containsObject:number])
+			{
+				assert(number);
+			}
+		}
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate = [NSDate date];
+	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle = total / numberOfRuns;
+	NSLog(@"Partial Fast Enumeration with check general ignore took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	
+	// A Second Meassuring without the Setupt for Pure Enumeration Time
+	// Setup first once
+	NSSet *ignoreItems = [NSSet setWithObject:[_testArray lastObject]];
+	// Start Time-meassurement
+	starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		for(NSNumber *number in _testArray)
+		{
+			// We can do this pointer-check here because the we search for the exact same object here
+			if(![ignoreItems containsObject:number])
+			{
+				assert(number);
+			}
+		}
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate2 = [NSDate date];
+	NSTimeInterval total2 = [endDate2 timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle2 = total2 / numberOfRuns;
+	NSLog(@"Partial Fast Enumeration (Without Setup) with check general ignore took %fs\t(%fms per Cycle / %fus per Iteration)", total2, (1000.0f * perCycle2), (perCycle2 / ([_testArray count] / 1000000.0f)));
+	
+	NSLog(@"Set-Up took %fms per cycle", 1000.0 * (perCycle - perCycle2));
+	return perCycle;
 }
 
 /**
@@ -605,6 +683,29 @@
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
     NSLog(@"partialEnumerationWithBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	
+	// A Second Meassuring without the Setupt for Pure Enumeration Time
+	// Setup first once
+	NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+	NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
+	// start time meassurement
+	starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		[_testArray enumerateObjectsAtIndexes:indexSet options:0 usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate2 = [NSDate date];
+	NSTimeInterval total2 = [endDate2 timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle2 = total2 / numberOfRuns;
+    NSLog(@"partialEnumerationWithBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total2, (1000.0f * perCycle2), (perCycle2 / ([_testArray count] / 1000000.0f)));
+	
+	NSLog(@"Set-Up took %fms per cycle", 1000.0 * (perCycle - perCycle2));
 	return perCycle;    
 }
 
@@ -629,8 +730,141 @@
 	NSDate        *endDate = [NSDate date];
 	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
 	NSTimeInterval perCycle = total / numberOfRuns;
+    NSLog(@"partialEnumerationWithBlockConcurrent (Without Setup) took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	
+	// A Second Meassuring without the Setupt for Pure Enumeration Time
+	// Setup first once
+	starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		NSRange subArrayRange = NSMakeRange(0, [_testArray count] -1);
+		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:subArrayRange];
+		[_testArray enumerateObjectsAtIndexes:indexSet options:NSEnumerationConcurrent usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate2 = [NSDate date];
+	NSTimeInterval total2 = [endDate2 timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle2 = total2 / numberOfRuns;
+    NSLog(@"partialEnumerationWithBlockConcurrent (Without Setup) took %fs\t(%fms per Cycle / %fus per Iteration)", total2, (1000.0f * perCycle2), (perCycle2 / ([_testArray count] / 1000000.0f)));
+	
+	NSLog(@"Set-Up took %fms per cycle", 1000.0 * (perCycle - perCycle2));
+	return perCycle;
+}
+
+#pragma mark - Partial Enumeration with several excluded objects
+
+/**
+ *  This Method enumerates all but the elements in a 'ignore' set by checking if the element is in the
+ *	ignore set
+ */
+-(NSTimeInterval)partialEnumerationCheckIgnoreExclude:(int)numberOfRuns
+{
+	// Generate an Ignore-Set of 20 Random Items
+	NSMutableSet *ignoreItems = [[NSMutableSet alloc]initWithCapacity:20];
+	while ([ignoreItems count] < 20) {
+		int randomIndex = arc4random() % [_testArray count];
+		[ignoreItems addObject:[_testArray objectAtIndex:randomIndex]];
+	}
+	
+    NSDate *starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		for(NSNumber *number in _testArray)
+		{
+			// We can do this pointer-check here because the we search for the exact same object here
+			if(![ignoreItems containsObject:number])
+			{
+				assert(number);
+			}
+		}
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate = [NSDate date];
+	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle = total / numberOfRuns;
+	NSLog(@"Partial Fast Enumeration with check general ignore took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	return perCycle;
+}
+
+/**
+ *  This Method enumerates all Objects in range, given by the indexset with a block
+ */
+-(NSTimeInterval)partialEnumerationWithBlockExclude:(int)numberOfRuns
+{
+	// Generate an Ignore-Set of 20 Random Items
+
+	// Build indexSet with Indexes to ignore
+	NSMutableIndexSet *indexesToIgnore = [[NSMutableIndexSet alloc]init];
+	while ([indexesToIgnore count] < 20) {
+		int randomIndex = arc4random() % [_testArray count];
+		[indexesToIgnore addIndex:randomIndex];
+	}
+	// Remove them from all indexes
+	NSRange subArrayRange = NSMakeRange(0, [_testArray count]);
+	NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSetWithIndexesInRange:subArrayRange];
+	[indexSet removeIndexes:indexesToIgnore];
+	
+	
+    NSDate *starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		[_testArray enumerateObjectsAtIndexes:indexSet options:0 usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate = [NSDate date];
+	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle = total / numberOfRuns;
+    NSLog(@"partialEnumerationWithBlock took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
+	return perCycle;
+}
+
+/**
+ *  This Method enumerates all Objects in range, given by the indexset with a block but concurrent
+ */
+-(NSTimeInterval)partialEnumerationWithBlockConcurrentExclude:(int)numberOfRuns
+{
+	// Generate an Ignore-Set of 20 Random Items
+	// Build indexSet with Indexes to ignore
+	NSMutableIndexSet *indexesToIgnore = [[NSMutableIndexSet alloc]init];
+	while ([indexesToIgnore count] < 20) {
+		int randomIndex = arc4random() % [_testArray count];
+		[indexesToIgnore addIndex:randomIndex];
+	}
+	// Remove them from all indexes
+	NSRange subArrayRange = NSMakeRange(0, [_testArray count]);
+	NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSetWithIndexesInRange:subArrayRange];
+	[indexSet removeIndexes:indexesToIgnore];
+
+	
+    NSDate *starDate = [NSDate date];
+	for(NSUInteger c = 0; c < numberOfRuns; c++)
+	{
+		// ////////////////////////////////////////////////////
+		// Algorithm
+		// ////////////////////////////////////////////////////
+		[_testArray enumerateObjectsAtIndexes:indexSet options:NSEnumerationConcurrent usingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
+			assert(number);
+		}];
+		// ////////////////////////////////////////////////////
+	}
+	NSDate        *endDate = [NSDate date];
+	NSTimeInterval total = [endDate timeIntervalSinceDate:starDate];
+	NSTimeInterval perCycle = total / numberOfRuns;
     NSLog(@"partialEnumerationWithBlockConcurrent took %fs\t(%fms per Cycle / %fus per Iteration)", total, (1000.0f * perCycle), (perCycle / ([_testArray count] / 1000000.0f)));
-	return perCycle;    
+	return perCycle;
 }
 
 
